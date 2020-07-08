@@ -1,0 +1,66 @@
+h3{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+h6{
+  font-size: 1em;
+  font-weight: bold;
+  margin: auto;
+}
+
+p{
+  text-align: center;
+}
+
+label{
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+
+
+#div-form-tiendas{
+  width: 70%;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #a4a8a8;
+  border-radius: 5px;
+  /* border: 2px solid black; */
+}
+
+button{
+  margin: 0.2em;
+}
+
+.container div{
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+@media all and (min-width: 700px){
+
+  #div-form-tiendas{
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    background-color: #a4a8a8;
+    border-radius: 5px;
+    /* border: 2px solid black; */
+  }
+
+  .form-group{
+    width: 50%;
+    margin: auto;
+  }
+
+  .form-group button{
+    margin: 1em 0.5em;
+  }
+
+  .alert-danger{
+    width: 100%;
+  }
+
+}

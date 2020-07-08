@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+  /* --border-pruebas: 2px solid black; */
+  background-color: #76757B;
+}
+
+#titulo{
+  margin: 2em auto;
+  text-align: center;
+  height: auto;
+  width: auto;
+  color: #F0F6F7;
+  /* border: var(--border-pruebas); */
+}
+
+#container{
+  margin: 1em auto;
+  width: 90%;
+  height: auto;
+  /* border: var(--border-pruebas); */
+}
+
+/* #contenido{
+  display: flex;
+  flex-wrap: wrap;
+}
+*/
+
+#pie{
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  height: auto;
+  margin: 1em;
+  color: #F0F6F7;
+}
+

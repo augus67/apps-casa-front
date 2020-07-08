@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th class="oculta">Dirección</th>
+      <th class="oculta">Teléfono</th>
+      <th class="oculta">Fecha Alta</th>
+      <th class="oculta">Fecha Modificación</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let tienda of tiendas">
+    <th scope="row">{{tienda.idTienda}}</th>
+    <td>{{tienda.desTienda}}</td>
+    <td class="oculta">{{tienda.direccion}}</td>
+    <td class="oculta">{{tienda.telefono}}</td>
+    <td class="oculta">{{tienda.fechaAlta | date:'dd-MM-yyyy'}}</td>
+    <td class="oculta">{{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+    <td><button type="button" class="btn btn-secondary btn-sm">Editar</button></td>
+  </tr>
+</table>
