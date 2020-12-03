@@ -14,13 +14,13 @@
     </div>
 
     <div class="form-group">
-      <label for="direccion">Dirección</label>
+      <label for="direccion">DirecciÃ³n</label>
       <input type="text" class="form-control" id="direccion" [(ngModel)]="tienda.direccion" name="direccion"
             placeholder="Calle, numero, etc" />
     </div>
 
     <div class="form-group">
-      <label for="telefono">Teléfono</label>
+      <label for="telefono">TelÃ©fono</label>
       <input type="text" class="form-control" id="telefono" [(ngModel)]="tienda.telefono" name="telefono"
             placeholder="93333333" />
     </div>
@@ -36,16 +36,19 @@
   	</div>
 
   </form>
-</div>
 
-<div class="container mt-2">
-  <div class="card card-block">
+  <div class="container mt-2">
+    <div class="card card-block">
 
-    <nav class="navbar navbar-dark bg-inverse mb-1">
-      <h6 class="navbar-brand mb-0 text-dark">Lista de Tiendas</h6>
-    </nav>
+      <nav class="navbar navbar-dark bg-inverse mb-1">
+        <h6 class="navbar-brand mb-0 text-dark">Lista de Tiendas</h6>
+      </nav>
 
-    <app-tienda-grid></app-tienda-grid>
+      <app-tienda-grid></app-tienda-grid>
 
+    </div>
   </div>
+
 </div>
+
+

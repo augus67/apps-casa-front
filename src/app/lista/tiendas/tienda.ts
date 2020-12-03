@@ -1,10 +1,10 @@
 export class Tienda {
 
-  idTienda: number;
-  desTienda: string;
-  direccion: string;
-  telefono: string;
-  fechaAlta: Date;
-  fechaUltMod: Date;
+  public idTienda: number;
+  public desTienda: string;
+  public direccion: string;
+  public telefono: string;
+  public fechaAlta: Date;
+  public fechaUltMod: Date;
 
 }

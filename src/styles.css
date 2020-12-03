@@ -2,11 +2,12 @@
 
 body{
   /* --border-pruebas: 2px solid black; */
-  background-color: #76757B;
+  background-color: black;
 }
 
 #titulo{
-  margin: 2em auto;
+  margin: 0 auto;
+  padding: 3em 0;
   text-align: center;
   height: auto;
   width: auto;
@@ -15,9 +16,11 @@ body{
 }
 
 #container{
-  margin: 1em auto;
+  margin: 0 auto;
   width: 90%;
   height: auto;
+  background-color: #76757B;
+  border-radius: 5px;
   /* border: var(--border-pruebas); */
 }
 
@@ -34,5 +37,6 @@ body{
   height: auto;
   margin: 1em;
   color: #F0F6F7;
+  padding: 1em;
 }
 

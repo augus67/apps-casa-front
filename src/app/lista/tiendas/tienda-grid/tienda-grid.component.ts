@@ -21,9 +21,15 @@ export class TiendaGridComponent implements OnInit {
 
   getAllTiendas() {
     this.service.getTiendas().subscribe(
-      tiendas => { this.tiendas = tiendas; },
-      error => { console.log('TiendaGridComponent.getAllTiendas: Error al obtener las tiendas'); }
-      );
+      tiendas => {
+        this.tiendas = tiendas;
+      },
+      error => {
+        alert('No se puede obtener la lista de Tiendas');
+        console.log(error);
+        console.log('TiendaGridComponent.getAllTiendas: Error al obtener las tiendas');
+      }
+    );
   }
 
 }
