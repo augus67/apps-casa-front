@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "eslint -c .eslintrc.js --ext .ts apps-casa-front/src",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -36,8 +36,11 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
     "angular-ide": "^0.9.75",
     "codelyzer": "^5.2.2",
+    "eslint": "^7.16.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -47,7 +50,6 @@
     "karma-jasmine-html-reporter": "^1.5.4",
     "protractor": "^5.4.4",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "^3.4.5"
   }
 }
