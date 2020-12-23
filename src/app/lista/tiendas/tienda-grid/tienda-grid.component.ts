@@ -31,5 +31,4 @@ export class TiendaGridComponent implements OnInit {
       }
     );
   }
-
 }

@@ -1,22 +1,41 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th class="oculta">Dirección</th>
-      <th class="oculta">Teléfono</th>
-      <th class="oculta">Fecha Alta</th>
-      <th class="oculta">Fecha Modificación</th>
-      <th>Acción</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let tienda of tiendas">
-    <th scope="row">{{tienda.idTienda}}</th>
-    <td>{{tienda.desTienda}}</td>
-    <td class="oculta">{{tienda.direccion}}</td>
-    <td class="oculta">{{tienda.telefono}}</td>
-    <td class="oculta">{{tienda.fechaAlta | date:'dd-MM-yyyy'}}</td>
-    <td class="oculta">{{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}</td>
-    <td><button type="button" class="btn btn-secondary btn-sm">Editar</button></td>
-  </tr>
-</table>
+<div class="container mt-2">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+</div>
+
+<div class="container mt-2">
+  <div class="card card-block">
+
+    <nav class="navbar navbar-dark bg-inverse mb-1">
+      <h6 class="navbar-brand mb-0 text-dark">Lista de Tiendas</h6>
+    </nav>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th class="oculta">Dirección</th>
+          <th class="oculta">Teléfono</th>
+          <th class="oculta">Fecha Alta</th>
+          <th class="oculta">Fecha Modificación</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let tienda of tiendas">
+        <th scope="row">{{tienda.idTienda}}</th>
+        <td>{{tienda.desTienda}}</td>
+        <td class="oculta">{{tienda.direccion}}</td>
+        <td class="oculta">{{tienda.telefono}}</td>
+        <td class="oculta">{{tienda.fechaAlta | date:'dd-MM-yyyy'}}</td>
+        <td class="oculta">{{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+        <td><button type="button" class="btn btn-secondary btn-sm">Editar</button></td>
+      </tr>
+    </table>
+
+  </div>
+</div>
