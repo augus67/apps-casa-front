@@ -1,19 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tienda } from '../tienda';
+
+import { AlertService } from './../../services/alert.service';
 import { TiendaService} from '../../services/tienda.service';
+
+import { Tienda } from '../tienda';
+import { Alert } from '../../modelo/alert';
 
 @Component({
   selector: 'app-tienda-grid',
   templateUrl: './tienda-grid.component.html',
   styleUrls: ['./tienda-grid.component.css'],
-  providers: [TiendaService]
+  providers: [TiendaService, AlertService]
 })
 
 export class TiendaGridComponent implements OnInit {
 
   tiendas: Array<Tienda>;
+  alerts: Array<Alert>;
+  alert: Alert;
 
-  constructor(private service: TiendaService) {}
+  constructor(private service: TiendaService, private alertService: AlertService) {}
 
   ngOnInit() {
     this.getAllTiendas();
@@ -25,10 +31,22 @@ export class TiendaGridComponent implements OnInit {
         this.tiendas = tiendas;
       },
       error => {
-        alert('No se puede obtener la lista de Tiendas');
-        console.log(error);
-        console.log('TiendaGridComponent.getAllTiendas: Error al obtener las tiendas');
+        // debugger;
+        if(error.name === "HttpErrorResponse") {
+          this.generarAlert('No se ha obtenido la lista de tiendas, no está disponible la URL: ' + error.url);
+          console.log(error);
+        } else {
+          this.generarAlert('No se ha podido obtener la lista de tiendas. ' + error.message);
+          console.log(error);
+        }
       }
     );
   }
+
+  generarAlert(mensaje: string) {
+    this.alerts = [];
+    this.alert = this.alertService.error(mensaje);
+    this.alerts.push(this.alert);
+  }
+
 }
