@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AlertService } from './../../services/alert.service';
 import { TiendaService} from '../../services/tienda.service';
@@ -33,11 +33,13 @@ export class TiendaGridComponent implements OnInit {
       error => {
         // debugger;
         if(error.name === "HttpErrorResponse") {
-          this.generarAlert('No se ha obtenido la lista de tiendas, no está disponible la URL: ' + error.url);
+          this.generarAlert('No se ha podido obtener la lista de tiendas, la URL: ' + error.url + ' no está disponible.');
           console.log(error);
+          setTimeout(() => { this.borrarAlert(); }, 7000);
         } else {
           this.generarAlert('No se ha podido obtener la lista de tiendas. ' + error.message);
           console.log(error);
+          setTimeout(() => { this.borrarAlert(); }, 7000);
         }
       }
     );
@@ -47,6 +49,10 @@ export class TiendaGridComponent implements OnInit {
     this.alerts = [];
     this.alert = this.alertService.error(mensaje);
     this.alerts.push(this.alert);
+  }
+
+  borrarAlert() {
+    this.alerts = [];
   }
 
 }

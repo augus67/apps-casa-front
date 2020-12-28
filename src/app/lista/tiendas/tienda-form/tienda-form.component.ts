@@ -31,12 +31,12 @@ export class TiendaFormComponent {
 
         const tamanyo: number = this.tienda.telefono.length;
         if (tamanyo > 12) {
-          alert('El teléfono es demasiado largo');
+          alert('El telÃ©fono es demasiado largo');
           return false;
         }
 
         if (isNaN(Number(this.tienda.telefono))) {
-          alert('El teléfono tiene que ser numérico');
+          alert('El telÃ©fono tiene que ser numÃ©rico');
           return false;
         }
 
