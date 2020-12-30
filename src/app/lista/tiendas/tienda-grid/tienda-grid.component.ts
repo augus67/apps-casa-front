@@ -33,25 +33,24 @@ export class TiendaGridComponent implements OnInit {
       error => {
         // debugger;
         if(error.name === "HttpErrorResponse") {
-          this.generarAlert('No se ha podido obtener la lista de tiendas, la URL: ' + error.url + ' no está disponible.');
+          this.mostrarNotificacion('error', 'No se ha podido obtener la lista de tiendas, la URL: ' + error.url + ' no está disponible.');
           console.log(error);
-          setTimeout(() => { this.borrarAlert(); }, 7000);
         } else {
-          this.generarAlert('No se ha podido obtener la lista de tiendas. ' + error.message);
+          this.mostrarNotificacion('error', 'No se ha podido obtener la lista de tiendas. ' + error.message);
           console.log(error);
-          setTimeout(() => { this.borrarAlert(); }, 7000);
         }
       }
     );
   }
 
-  generarAlert(mensaje: string) {
+  mostrarNotificacion(tipoAlert: string, mensaje: string) {
     this.alerts = [];
-    this.alert = this.alertService.error(mensaje);
+    this.alert = this.alertService.generarAlert(tipoAlert, mensaje);
     this.alerts.push(this.alert);
+    setTimeout(() => { this.borrarNotificacion(); }, 7000);
   }
 
-  borrarAlert() {
+  borrarNotificacion() {
     this.alerts = [];
   }
 

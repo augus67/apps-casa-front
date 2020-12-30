@@ -10,36 +10,55 @@ export class AlertService {
 
   constructor() { }
 
-  error(mensaje: string): Alert {
+  error(mensaje: string) {
     this.alert = new Alert();
     this.alert.estilo = 'alert alert-danger alert-dismissible fade show';
     this.alert.tipo = 'Error: ';
     this.alert.mensaje = mensaje;
-    return this.alert;
   }
 
-  info(mensaje: string): Alert {
+  info(mensaje: string) {
     this.alert = new Alert();
     this.alert.estilo = 'alert alert-info alert-dismissible fade show';
     this.alert.tipo = 'Info: ';
     this.alert.mensaje = mensaje;
-    return this.alert;
   }
 
-  warn(mensaje: string): Alert {
+  warn(mensaje: string) {
     this.alert = new Alert();
     this.alert.estilo = 'alert alert-warning alert-dismissible fade show';
     this.alert.tipo = 'Aviso: ';
     this.alert.mensaje = mensaje;
-    return this.alert;
   }
 
-  success(mensaje: string): Alert {
+  success(mensaje: string) {
     this.alert = new Alert();
     this.alert.estilo = 'alert alert-success alert-dismissible fade show';
-    this.alert.tipo = 'Aviso: ';
+    this.alert.tipo = 'Hecho: ';
     this.alert.mensaje = mensaje;
-    return this.alert;
+  }
+
+  generarAlert(tipoAlert: string, mensaje: string): Alert {
+
+    if(tipoAlert === 'error'){
+      this.error(mensaje);
+      return this.alert;
+    }
+
+    if(tipoAlert === 'warning'){
+      this.warn(mensaje);
+      return this.alert;
+    }
+
+    if(tipoAlert === 'info'){
+      this.info(mensaje);
+      return this.alert;
+    }
+
+    if(tipoAlert === 'success'){
+      this.success(mensaje);
+      return this.alert;
+    }
   }
 
 }

@@ -62,7 +62,7 @@ button{
     width: 80%;
     margin: 1em auto;
     padding: 1em;
-    background-color: #a4a8a8;
+    /* background-color: #a4a8a8; */
     border-radius: 5px;
     /* border: 2px solid black; */
   }

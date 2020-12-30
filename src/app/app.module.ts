@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { TiendaFormComponent } from './lista/tiendas/tienda-form/tienda-form.component';
 import { TiendaGridComponent } from './lista/tiendas/tienda-grid/tienda-grid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './lista/comun/alert/alert.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     BarraNavComponent,
     HomeComponent,
     TiendaFormComponent,
-    TiendaGridComponent
+    TiendaGridComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

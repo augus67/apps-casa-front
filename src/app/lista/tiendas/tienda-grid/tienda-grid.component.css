@@ -3,6 +3,11 @@ table{
   text-align: left;
 }
 
+h6{
+  margin: auto;
+  font-weight: bold;
+}
+
 /* td{
   text-align: left;
 } */
