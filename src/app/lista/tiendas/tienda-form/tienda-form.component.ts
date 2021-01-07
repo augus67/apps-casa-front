@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { Tienda } from '../tienda';
 import { Alert } from '../../modelo/alert';
 
 import { TiendaService } from '../../services/tienda.service';
 import { AlertService } from './../../services/alert.service';
+
+import { TiendaGridComponent } from './../tienda-grid/tienda-grid.component';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -20,11 +23,14 @@ export class TiendaFormComponent {
   alert: Alert;
   alerts: Array<Alert>;
 
+  @ViewChild(TiendaGridComponent, {static: false})
+  gridTiendas: TiendaGridComponent;
+
   constructor(private service: TiendaService, private alertService: AlertService) {}
 
   validar(): boolean {
-    if (!this.tienda.desTienda) {
-      alert('Tienda sin datos');
+    if (!this.tienda.desTienda || this.tienda.desTienda.trim().length == 0) {
+      this.mostrarNotificacion('error', 'Tienda sin datos');
       return false;
     } else {
       if (this.tienda.telefono) {
@@ -43,13 +49,17 @@ export class TiendaFormComponent {
     return true;
   }
 
-  enviar() {
+  enviar(tiendaForm: NgForm) {
     if (this.validar()) {
       this.submitted = true;
       this.service.createTienda(this.tienda).subscribe(
           tienda => {
             this.tienda = tienda;
-            this.mostrarNotificacion('success', 'Se ha creado la tienda correctamente.');
+            // Recargamos la grid con la nueva tienda
+            this.gridTiendas.getAllTiendas();
+            this.mostrarNotificacion('success', 'Se ha creado la tienda \"' + tienda.desTienda + '\" correctamente.');
+            // Limpiamos los campos del formulario
+            tiendaForm.reset();
           },
           error => {
             this.mostrarNotificacion('error', 'No se ha podido crear la tienda. No se puede conectar con el servidor');

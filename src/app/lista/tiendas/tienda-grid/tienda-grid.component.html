@@ -17,7 +17,7 @@
           <th class="oculta">Teléfono</th>
           <th class="oculta">Fecha Alta</th>
           <th class="oculta">Fecha Modificación</th>
-          <th>Acción</th>
+          <th style="text-align: center;">Acción</th>
         </tr>
       </thead>
       <tr *ngFor="let tienda of tiendas">
@@ -27,7 +27,11 @@
         <td class="oculta">{{tienda.telefono}}</td>
         <td class="oculta">{{tienda.fechaAlta | date:'dd-MM-yyyy'}}</td>
         <td class="oculta">{{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}</td>
-        <td><button type="button" class="btn btn-secondary btn-sm">Editar</button></td>
+        <td>
+          <button type="button" class="btn btn-secondary btn-sm">Editar</button>
+          &nbsp;
+          <button type="button" class="btn btn-secondary btn-sm">Borrar</button>
+        </td>
       </tr>
     </table>
 

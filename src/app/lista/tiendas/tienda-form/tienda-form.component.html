@@ -1,13 +1,13 @@
 
 <div id="div-form-tiendas">
-  <h3>Gestiona tus tiendas</h3>
+  <h3>Gestiona tus establecimientos</h3>
 
-  <form id="form-tiendas" #tiendaForm="ngForm" (ngSubmit)="enviar()">
+  <form id="form-tiendas" #tiendaForm="ngForm" (ngSubmit)="enviar(tiendaForm)">
 
     <div class="form-group">
-      <label for="nombre">Nombre Tienda</label>
+      <label for="nombre">Nombre Establecimiento</label>
       <input type="text" class="form-control" id="nombre" [(ngModel)]="tienda.desTienda" name="nombre" #nombre="ngModel"
-            placeholder="Nombre establecimiento" required />
+            placeholder="Nombre" required />
       <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
         Nombre Tienda es obligatorio
       </div>
