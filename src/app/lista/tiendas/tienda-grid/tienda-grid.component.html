@@ -7,33 +7,74 @@
     <nav class="navbar navbar-dark bg-inverse mb-1">
       <h6 class="navbar-brand mb-0 text-dark">Lista de Tiendas</h6>
     </nav>
-
-    <table class="table table-hover">
-      <thead>
+    <p-table [value]="tiendas" dataKey="idTienda" editMode="row" [responsive]="true" [paginator]="true" [rows]="filas" [rowsPerPageOptions]=[5,10,15,20]
+      [totalRecords]="totalFilas" [pageLinks]="3">
+      <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th class="oculta">Dirección</th>
-          <th class="oculta">Teléfono</th>
-          <th class="oculta">Fecha Alta</th>
-          <th class="oculta">Fecha Modificación</th>
-          <th style="text-align: center;">Acción</th>
+            <th style="width: 5em;">ID</th>
+            <th style="width: 20em;">Nombre</th>
+            <th style="width: 20em;">Dirección</th>
+            <th style="width: 8em;">Teléfono</th>
+            <th style="width: 8em;">Fecha Alta</th>
+            <th>Fecha Modificación</th>
+            <th style="width: 8em">Editar</th>
         </tr>
-      </thead>
-      <tr *ngFor="let tienda of tiendas">
-        <th scope="row">{{tienda.idTienda}}</th>
-        <td>{{tienda.desTienda}}</td>
-        <td class="oculta">{{tienda.direccion}}</td>
-        <td class="oculta">{{tienda.telefono}}</td>
-        <td class="oculta">{{tienda.fechaAlta | date:'dd-MM-yyyy'}}</td>
-        <td class="oculta">{{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}</td>
-        <td>
-          <button type="button" class="btn btn-secondary btn-sm">Editar</button>
-          &nbsp;
-          <button type="button" class="btn btn-secondary btn-sm">Borrar</button>
-        </td>
-      </tr>
-    </table>
+      </ng-template>
+      <ng-template pTemplate="body" let-tienda let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="tienda">
+            <td>
+                {{tienda.idTienda}}
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="tienda.desTienda" required style="width: 100%;">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{tienda.desTienda}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                      <input pInputText type="text" [(ngModel)]="tienda.direccion" style="width: 100%;">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{tienda.direccion}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="tienda.telefono"style="width: 100%;">
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                      {{tienda.telefono}}
+                  </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>
+                {{tienda.fechaAlta | date:'dd-MM-yyyy'}}
+            </td>
+            <td>
+                {{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}
+              </td>
+              <td style="text-align:center">
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info"
+                  (click)="onRowEditInit(tienda)"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em"
+                  (click)="onRowEditSave(tienda)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger"
+                  (click)="onRowEditCancel(tienda, ri)"></button>
+              </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <!-- <p-paginator [rows]="filas" [totalRecords]="totalFilas" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
 
   </div>
 </div>
+
+

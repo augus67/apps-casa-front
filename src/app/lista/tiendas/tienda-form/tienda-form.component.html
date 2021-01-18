@@ -6,8 +6,7 @@
 
     <div class="form-group">
       <label for="nombre">Nombre Establecimiento</label>
-      <input type="text" class="form-control" id="nombre" [(ngModel)]="tienda.desTienda" name="nombre" #nombre="ngModel"
-            placeholder="Nombre" required />
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="tienda.desTienda" name="nombre" #nombre="ngModel" placeholder="Nombre" required />
       <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
         Nombre Tienda es obligatorio
       </div>
@@ -15,28 +14,20 @@
 
     <div class="form-group">
       <label for="direccion">Dirección</label>
-      <input type="text" class="form-control" id="direccion" [(ngModel)]="tienda.direccion" name="direccion"
-            placeholder="Calle, numero, etc" />
+      <input type="text" class="form-control" id="direccion" [(ngModel)]="tienda.direccion" name="direccion" placeholder="Calle, numero, etc" />
     </div>
 
     <div class="form-group">
       <label for="telefono">Teléfono</label>
-      <input type="text" class="form-control" id="telefono" [(ngModel)]="tienda.telefono" name="telefono"
-            placeholder="93333333" />
+      <input type="text" class="form-control" id="telefono" [(ngModel)]="tienda.telefono" name="telefono" placeholder="93333333" />
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary" [disabled]="!tiendaForm.form.valid">
-        Guardar
-      </button>
-
-      <button type="reset" class="btn btn-primary" (click)="tiendaForm.reset()" [disabled]="!tiendaForm.form.valid">
-        Limpiar
-      </button>
+      <p-button type="submit" label="Guardar" icon="pi pi-check" iconPos="left" [disabled]="!tiendaForm.form.valid"></p-button>
+      <p-button type="reset" label="Limpiar" icon="pi pi-refresh" (onClick)="tiendaForm.reset()" [disabled]="!tiendaForm.form.valid"></p-button>
     </div>
 
     <app-alert [alerts]="alerts"></app-alert>
-
   </form>
 
   <app-tienda-grid></app-tienda-grid>

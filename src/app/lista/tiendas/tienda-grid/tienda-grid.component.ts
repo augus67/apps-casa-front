@@ -18,6 +18,8 @@ export class TiendaGridComponent implements OnInit {
   tiendas: Array<Tienda>;
   alerts: Array<Alert>;
   alert: Alert;
+  filas: number = 10;
+  totalFilas: number;
 
   constructor(private service: TiendaService, private alertService: AlertService) {}
 
@@ -29,6 +31,7 @@ export class TiendaGridComponent implements OnInit {
     this.service.getTiendas().subscribe(
       tiendas => {
         this.tiendas = tiendas;
+        this.totalFilas = this.tiendas.length;
       },
       error => {
         // debugger;
@@ -52,6 +55,18 @@ export class TiendaGridComponent implements OnInit {
 
   borrarNotificacion() {
     this.alerts = [];
+  }
+
+  onRowEditInit(tienda: Tienda) {
+
+  }
+
+  onRowEditSave(tienda: Tienda) {
+
+  }
+
+  onRowEditCancel(tienda: Tienda, index: number) {
+
   }
 
 }
