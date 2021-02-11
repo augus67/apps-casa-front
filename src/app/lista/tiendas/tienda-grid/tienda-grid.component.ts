@@ -38,7 +38,7 @@ export class TiendaGridComponent implements OnInit {
       error => {
         // debugger;
         if(error.status === 0) {
-          this.mostrarNotificacion('error', 'No se ha obtenido respuesta del servidor.');
+          this.mostrarNotificacion('error', 'No se ha podido obtener la lista de tiendas, no hay respuesta del servidor.');
           console.log(error);
         } else {
           this.mostrarNotificacion('error', 'No se ha podido obtener la lista de tiendas. ' + error.message);
