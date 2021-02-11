@@ -12,12 +12,12 @@
       <ng-template pTemplate="header">
         <tr>
             <th style="width: 5em;">ID</th>
-            <th style="width: 20em;">Nombre</th>
+            <th style="width: 15em;">Nombre</th>
             <th style="width: 20em;">Dirección</th>
-            <th style="width: 8em;">Teléfono</th>
+            <th style="width: 9em;">Teléfono</th>
             <th style="width: 8em;">Fecha Alta</th>
-            <th>Fecha Modificación</th>
-            <th style="width: 8em">Editar</th>
+            <th style="width: 12em;">Fecha Modificación</th>
+            <th style="width: 10em">Acciones</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-tienda let-editing="editing" let-ri="rowIndex">
@@ -61,18 +61,19 @@
             <td>
                 {{tienda.fechaUltMod | date:'dd-MM-yyyy HH:mm:ss'}}
               </td>
-              <td style="text-align:center">
+              <td style="text-align:center; padding: 0.5em 0;">
                 <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info"
-                  (click)="onRowEditInit(tienda)"></button>
+                  (click)="onRowEditInit(tienda)" title="Seleccionar"></button>
                 <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em"
-                  (click)="onRowEditSave(tienda)"></button>
-                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger"
-                  (click)="onRowEditCancel(tienda, ri)"></button>
+                  (click)="onRowEditSave(tienda)" title="Guardar"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" style="margin-right: .5em"
+                  (click)="onRowEditCancel(tienda, ri)" title="Cancelar"></button>
+                  <button *ngIf="editing" pButton type="button" icon="pi pi-trash" class="ui-button-warning" style="color: #FFF;"
+                  (click)="onRowDelete(tienda)" title="Borrar"></button>
               </td>
             </tr>
         </ng-template>
     </p-table>
-    <!-- <p-paginator [rows]="filas" [totalRecords]="totalFilas" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
 
   </div>
 </div>
